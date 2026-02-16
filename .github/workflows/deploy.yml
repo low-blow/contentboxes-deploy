@@ -2,6 +2,9 @@ name: Manual Deploy to VPS
 
 on:
   workflow_dispatch:
+  push: # для первого запуска workflow
+    branches:
+      - master
 
 jobs:
   deploy:
