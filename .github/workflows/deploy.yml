@@ -29,10 +29,8 @@ jobs:
 
             git pull origin master || { echo 'git pull failed'; exit 1; }
 
-            docker compose down --remove-orphans
-            docker compose images -q | sort -u | xargs -r docker rmi -f  || { echo 'delete images failed'; exit 1; }
-
             docker compose pull || { echo 'docker compose pull failed'; exit 1; }
+            docker compose down --remove-orphans
             docker compose up -d --force-recreate
             docker image prune -f
           "
