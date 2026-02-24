@@ -9,3 +9,7 @@
 
 # logs
 nginx/logs
+
+# acme-companion
+acme
+certs

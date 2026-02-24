@@ -45,7 +45,7 @@ services:
       - VIRTUAL_PATH=/
       - LETSENCRYPT_HOST=${DOMAIN_NAME}
     expose:
-      - "3000"
+      - ${FRONTEND_PORT}
     depends_on:
       - backend
     networks:
@@ -79,7 +79,7 @@ services:
       - TELEGRAM_BOT_TOKEN=${BACKEND_TELEGRAM_BOT_TOKEN}
       - TELEGRAM_BOT_TOKEN_EXP_IN=${BACKEND_TELEGRAM_BOT_TOKEN_EXP_IN}
     expose:
-      - "8080"
+      - ${BACKEND_PORT}
     networks:
       - app-net
     depends_on:
