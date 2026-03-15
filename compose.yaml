@@ -163,6 +163,8 @@ services:
       "
     profiles:
       - ''
+    networks:
+      - app-net
 
   migrate:
     image: ghcr.io/low-blow/contentboxes-backend-migrations:latest
