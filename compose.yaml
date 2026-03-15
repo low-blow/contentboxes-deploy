@@ -118,6 +118,10 @@ services:
   minio:
     image: minio/minio:RELEASE.2025-09-07T16-13-09Z
     environment:
+      VIRTUAL_HOST: ${DOMAIN_NAME}
+      VIRTUAL_PORT: 9000
+      VIRTUAL_PATH: ~^/contentboxes/(shared|tmp)/
+
       MINIO_ROOT_USER: ${S3_BUCKET}
       MINIO_ROOT_PASSWORD: ${S3_SECRET_KEY}
     command: server /data --console-address ":9001"
